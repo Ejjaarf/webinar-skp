@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webinar SKP Tenaga Kesehatan — 9 SKP Perawat, 6 SKP Bidan, 3 SKP Dokter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0F2A3D;
+    --navy-deep:#081824;
+    --teal:#14A897;
+    --teal-soft:#E3F5F1;
+    --coral:#F16A5E;
+    --paper:#FBFAF7;
+    --ink:#16232B;
+    --ink-soft:#4B5B63;
+    --line:#D8E1DE;
+    --white:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'IBM Plex Sans', sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+  }
+  h1,h2,h3{
+    font-family:'Source Serif 4', serif;
+    margin:0;
+    color:var(--navy-deep);
+    font-weight:600;
+  }
+  img,svg{max-width:100%;display:block;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  a{color:inherit;}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
+    color:var(--white);
+    padding:64px 0 56px;
+  }
+  .hero .eyebrow{
+    font-size:14px;
+    letter-spacing:0.02em;
+    color:#9FC7C0;
+    margin-bottom:14px;
+    max-width:52ch;
+  }
+  .hero h1{
+    color:var(--white);
+    font-size:clamp(32px,5vw,46px);
+    line-height:1.15;
+    max-width:16ch;
+  }
+  .hero .lead{
+    margin-top:18px;
+    font-size:17px;
+    color:#C9D6D3;
+    max-width:48ch;
+  }
+  .profession-plaque{
+    margin-top:36px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:4px;
+    overflow:hidden;
+  }
+  .profession-plaque div{
+    padding:20px 14px;
+    text-align:center;
+    border-right:1px solid rgba(255,255,255,0.18);
+  }
+  .profession-plaque div:last-child{border-right:none;}
+  .profession-plaque .skp{
+    font-family:'Source Serif 4', serif;
+    font-size:30px;
+    color:var(--coral);
+    display:block;
+  }
+  .profession-plaque .who{
+    font-size:13px;
+    color:#C9D6D3;
+    margin-top:4px;
+    display:block;
+  }
+  .cta-primary{
+    display:inline-block;
+    margin-top:32px;
+    background:var(--teal);
+    color:var(--white);
+    text-decoration:none;
+    font-weight:600;
+    padding:15px 30px;
+    border-radius:3px;
+    font-size:16px;
+    border:none;
+    cursor:pointer;
+  }
+  .cta-primary:hover{background:#118F80;}
+
+  /* ACCREDITATION STRIP */
+  .accred-strip{
+    background:var(--teal-soft);
+    border-bottom:1px solid var(--line);
+    padding:14px 0;
+    font-size:14px;
+    color:var(--teal);
+    text-align:center;
+  }
+
+  /* MATERI */
+  section{padding:56px 0;}
+  .section-label{
+    font-size:13px;
+    color:var(--teal);
+    font-weight:600;
+    margin-bottom:8px;
+  }
+  .materi-list{
+    margin-top:28px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+  }
+  .materi-card{
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    background:var(--white);
+  }
+  .materi-shot{
+    background:var(--teal-soft);
+    border-bottom:1px solid var(--line);
+  }
+  .materi-shot img{
+    width:100%;
+    display:block;
+  }
+  .materi-body{
+    padding:18px 20px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+  }
+  .materi-body h3{
+    font-size:18px;
+    color:var(--navy-deep);
+    max-width:24ch;
+  }
+  .materi-body .skp-value{
+    font-family:'Source Serif 4', serif;
+    font-size:18px;
+    color:var(--coral);
+    white-space:nowrap;
+  }
+  .materi-caption{
+    font-size:12px;
+    color:var(--ink-soft);
+    padding:10px 20px 0;
+    margin:0;
+  }
+
+  /* INFO GRID */
+  .info-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin-top:8px;
+  }
+  .info-grid div{
+    background:var(--white);
+    padding:24px 18px;
+  }
+  .info-grid .label{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  .info-grid .value{
+    font-family:'Source Serif 4', serif;
+    font-size:19px;
+    color:var(--navy-deep);
+  }
+
+  /* FORM */
+  .form-section{
+    background:var(--navy-deep);
+    color:var(--white);
+  }
+  .form-section .section-label{color:#9FC7C0;}
+  .form-section h2{color:var(--white); font-size:28px; max-width:22ch;}
+  .form-section .lead{color:#C9D6D3; margin-top:10px; max-width:50ch; font-size:15px;}
+  .form-card{
+    background:var(--white);
+    color:var(--ink);
+    border-radius:4px;
+    padding:32px;
+    margin-top:32px;
+  }
+  .field{margin-bottom:20px;}
+  .field label{
+    display:block;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:8px;
+    color:var(--navy-deep);
+  }
+  .field input[type="text"], .field input[type="tel"]{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:15px;
+    background:var(--teal-soft);
+  }
+  .field input:focus{outline:2px solid var(--teal); outline-offset:1px;}
+  .radio-row{display:flex; gap:20px; flex-wrap:wrap;}
+  .radio-row label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:500;
+    font-size:15px;
+    color:var(--ink);
+  }
+  .radio-row input{accent-color:var(--teal);}
+  .form-note{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-top:18px;
+  }
+  button.submit-btn{
+    width:100%;
+    margin-top:8px;
+  }
+
+  footer{
+    padding:32px 0 48px;
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+
+  @media(max-width:600px){
+    .profession-plaque{grid-template-columns:1fr;}
+    .profession-plaque div{border-right:none; border-bottom:1px solid rgba(255,255,255,0.18);}
+    .profession-plaque div:last-child{border-bottom:none;}
+    .info-grid{grid-template-columns:1fr;}
+    .materi-list{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Program pelatihan pendidikan profesi terakreditasi, resmi terdaftar di akun Kemenkes</p>
+    <h1>2 Webinar setara 9 SKP untuk Perawat</h1>
+    <p class="lead">Ikuti dua sesi pembelajaran daring, dapatkan satuan kredit profesi yang diakui — untuk perawat, bidan, dan dokter.</p>
+
+    <div class="profession-plaque">
+      <div><span class="skp">9 SKP</span><span class="who">Perawat</span></div>
+      <div><span class="skp">6 SKP</span><span class="who">Bidan</span></div>
+      <div><span class="skp">3 SKP</span><span class="who">Dokter</span></div>
+    </div>
+
+    <a href="#daftar" class="cta-primary">Isi Form & Daftar Sekarang</a>
+  </div>
+</div>
+
+<div class="accred-strip">
+  Resmi terakreditasi di akun resmi Kemenkes
+</div>
+
+<section id="materi">
+  <div class="wrap">
+    <p class="section-label">Materi webinar</p>
+    <h2>Yang akan Anda ikuti</h2>
+
+    <div class="materi-list">
+      <article class="materi-card">
+        <div class="materi-shot">
+          <img src="IMG_20260924_064850_212.jpg" alt="Tampilan resmi kelas Update Disaster Management di platform pembelajaran Kemenkes">
+        </div>
+        <p class="materi-caption">Terdaftar resmi di platform Kemenkes</p>
+        <div class="materi-body">
+          <h3>Update Disaster Management</h3>
+          <span class="skp-value">4,5 SKP</span>
+        </div>
+      </article>
+      <article class="materi-card">
+        <div class="materi-shot">
+          <img src="IMG_20260924_064857_966.jpg" alt="Tampilan resmi kelas Update Aritmia Management di platform pembelajaran Kemenkes">
+        </div>
+        <p class="materi-caption">Terdaftar resmi di platform Kemenkes</p>
+        <div class="materi-body">
+          <h3>Update Aritmia Management</h3>
+          <span class="skp-value">4,5 SKP</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="info-grid">
+      <div>
+        <div class="label">Format</div>
+        <div class="value">Online</div>
+      </div>
+      <div>
+        <div class="label">Sertifikasi</div>
+        <div class="value">Program dengan SKP</div>
+      </div>
+      <div>
+        <div class="label">Investasi</div>
+        <div class="value">Rp60.000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="form-section" id="daftar">
+  <div class="wrap">
+    <p class="section-label">Pendaftaran</p>
+    <h2>Daftarkan diri Anda sekarang, sebelum seat terisi penuh</h2>
+    <p class="lead">Isi data diri di bawah ini. Admin kami akan menghubungi Anda untuk proses pendaftaran selanjutnya.</p>
+
+    <div class="form-card">
+      <form id="regForm">
+        <div class="field">
+          <label for="nama">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" required>
+        </div>
+        <div class="field">
+          <label for="wa">No. WhatsApp</label>
+          <input type="tel" id="wa" name="wa" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="text" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label>Profesi</label>
+          <div class="radio-row">
+            <label><input type="radio" name="profesi" value="Perawat" required> Perawat</label>
+            <label><input type="radio" name="profesi" value="Bidan"> Bidan</label>
+            <label><input type="radio" name="profesi" value="Dokter"> Dokter</label>
+          </div>
+        </div>
+        <button type="submit" class="cta-primary submit-btn" id="submitBtn">Isi Form & Daftar Sekarang</button>
+        <p class="form-note">Setelah mengirim, Anda akan diarahkan ke WhatsApp admin untuk melanjutkan pendaftaran.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Webinar SKP Tenaga Kesehatan — Perawat, Bidan, Dokter
+</footer>
+
+<script>
+  var ADMIN_WHATSAPP_NUMBER = "6285175060446"; // 0851 7506 0446
+
+  // Ganti dengan URL Web App Apps Script setelah lo deploy (lihat catatan yang menyertai file ini).
+  var SHEET_WEBAPP_URL = "PASTE_URL_WEB_APP_APPS_SCRIPT_DI_SINI";
+
+  document.getElementById('regForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var nama = document.getElementById('nama').value.trim();
+    var wa = document.getElementById('wa').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var profesiEl = document.querySelector('input[name="profesi"]:checked');
+    var profesi = profesiEl ? profesiEl.value : '';
+    var submitBtn = document.getElementById('submitBtn');
+
+    var pesan = "Halo, saya ingin mendaftar Webinar SKP.\n" +
+      "Nama: " + nama + "\n" +
+      "No. WhatsApp: " + wa + "\n" +
+      "Email: " + email + "\n" +
+      "Profesi: " + profesi;
+
+    function goToWhatsApp(){
+      var url = "https://wa.me/" + ADMIN_WHATSAPP_NUMBER + "?text=" + encodeURIComponent(pesan);
+      window.location.href = url;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Mengirim...";
+
+    var formData = new FormData();
+    formData.append('nama', nama);
+    formData.append('wa', wa);
+    formData.append('email', email);
+    formData.append('profesi', profesi);
+
+    // no-cors: kita tidak bisa baca responsnya, jadi apa pun hasilnya
+    // (berhasil/gagal), pendaftar tetap diarahkan ke WhatsApp lewat .finally()
+    fetch(SHEET_WEBAPP_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: formData
+    }).catch(function(){ /* diamkan; tetap lanjut ke WhatsApp */ })
+      .finally(goToWhatsApp);
+  });
+</script>
+
+</body>
+</html>
