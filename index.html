@@ -296,7 +296,7 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
       <div><span class="skp">3 SKP</span><span class="who">Dokter</span></div>
     </div>
 
-    <a href="#daftar" class="cta-primary">Isi Form & Daftar Sekarang</a>
+    <a href="#" id="heroCta" class="cta-primary">Daftar via WhatsApp Sekarang</a>
   </div>
 </div>
 
@@ -353,33 +353,11 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
   <div class="wrap">
     <p class="section-label">Pendaftaran</p>
     <h2>Daftarkan diri Anda sekarang, sebelum seat terisi penuh</h2>
-    <p class="lead">Isi data diri di bawah ini. Admin kami akan menghubungi Anda untuk proses pendaftaran selanjutnya.</p>
+    <p class="lead">Klik tombol di bawah, chat langsung terbuka ke admin kami untuk proses pendaftaran.</p>
 
-    <div class="form-card">
-      <form id="regForm">
-        <div class="field">
-          <label for="nama">Nama Lengkap</label>
-          <input type="text" id="nama" name="nama" required>
-        </div>
-        <div class="field">
-          <label for="wa">No. WhatsApp</label>
-          <input type="tel" id="wa" name="wa" required>
-        </div>
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="text" id="email" name="email" required>
-        </div>
-        <div class="field">
-          <label>Profesi</label>
-          <div class="radio-row">
-            <label><input type="radio" name="profesi" value="Perawat" required> Perawat</label>
-            <label><input type="radio" name="profesi" value="Bidan"> Bidan</label>
-            <label><input type="radio" name="profesi" value="Dokter"> Dokter</label>
-          </div>
-        </div>
-        <button type="submit" class="cta-primary submit-btn" id="submitBtn">Isi Form & Daftar Sekarang</button>
-        <p class="form-note">Setelah mengirim, Anda akan diarahkan ke WhatsApp admin untuk melanjutkan pendaftaran.</p>
-      </form>
+    <div class="form-card" style="text-align:center;">
+      <a href="#" id="waCta" class="cta-primary submit-btn" style="text-decoration:none; display:inline-block;">Daftar via WhatsApp Sekarang</a>
+      <p class="form-note">Anda akan diarahkan ke WhatsApp admin untuk melanjutkan pendaftaran.</p>
     </div>
   </div>
 </section>
@@ -390,52 +368,20 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
 
 <script>
   var ADMIN_WHATSAPP_NUMBER = "6285175060446"; // 0851 7506 0446
+  var WA_MESSAGE = "Halo, saya ingin mendaftar Webinar SKP (Update Disaster Management & Update Aritmia Management).";
+  var WA_URL = "https://wa.me/" + ADMIN_WHATSAPP_NUMBER + "?text=" + encodeURIComponent(WA_MESSAGE);
 
-  // Ganti dengan URL Web App Apps Script setelah lo deploy (lihat catatan yang menyertai file ini).
-  var SHEET_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbz72PeHVMDpvdGNMU4r6fIBBSZUdDDJ1kpCgIkkv4QRapG_WblGkjNUKo6sVeY-yCVR7w/exec";
+  document.getElementById('heroCta').setAttribute('href', WA_URL);
+  document.getElementById('waCta').setAttribute('href', WA_URL);
 
-  document.getElementById('regForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    var nama = document.getElementById('nama').value.trim();
-    var wa = document.getElementById('wa').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var profesiEl = document.querySelector('input[name="profesi"]:checked');
-    var profesi = profesiEl ? profesiEl.value : '';
-    var submitBtn = document.getElementById('submitBtn');
-
-    var pesan = "Halo, saya ingin mendaftar Webinar SKP.\n" +
-      "Nama: " + nama + "\n" +
-      "No. WhatsApp: " + wa + "\n" +
-      "Email: " + email + "\n" +
-      "Profesi: " + profesi;
-
-    function goToWhatsApp(){
-      var url = "https://wa.me/" + ADMIN_WHATSAPP_NUMBER + "?text=" + encodeURIComponent(pesan);
-      window.location.href = url;
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Mengirim...";
-
+  function trackLeadClick(){
     if (typeof fbq === 'function') {
       fbq('track', 'Lead');
     }
+  }
 
-    var formData = new FormData();
-    formData.append('nama', nama);
-    formData.append('wa', wa);
-    formData.append('email', email);
-    formData.append('profesi', profesi);
-
-    // no-cors: kita tidak bisa baca responsnya, jadi apa pun hasilnya
-    // (berhasil/gagal), pendaftar tetap diarahkan ke WhatsApp lewat .finally()
-    fetch(SHEET_WEBAPP_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      body: formData
-    }).catch(function(){ /* diamkan; tetap lanjut ke WhatsApp */ })
-      .finally(goToWhatsApp);
-  });
+  document.getElementById('heroCta').addEventListener('click', trackLeadClick);
+  document.getElementById('waCta').addEventListener('click', trackLeadClick);
 </script>
 
 </body>
