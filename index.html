@@ -3,10 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Webinar SKP Tenaga Kesehatan — 9 SKP Perawat, 6 SKP Bidan, 3 SKP Dokter</title>
+<title>Webinar Kesehatan Nasional — 9 SKP Perawat & Bidan, 3 SKP Dokter</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1426964712733128');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
 <style>
   :root{
     --navy:#0F2A3D;
@@ -35,7 +54,6 @@
     color:var(--navy-deep);
     font-weight:600;
   }
-  img,svg{max-width:100%;display:block;}
   .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
   a{color:inherit;}
 
@@ -48,7 +66,7 @@
   .hero .eyebrow{
     font-size:14px;
     letter-spacing:0.02em;
-    color:#9FC7C0;
+    color:#8FE0D2;
     margin-bottom:14px;
     max-width:52ch;
   }
@@ -56,7 +74,7 @@
     color:var(--white);
     font-size:clamp(32px,5vw,46px);
     line-height:1.15;
-    max-width:16ch;
+    max-width:18ch;
   }
   .hero .lead{
     margin-top:18px;
@@ -132,8 +150,8 @@
   .materi-card{
     border:1px solid var(--line);
     border-radius:4px;
-    overflow:hidden;
     background:var(--white);
+    overflow:hidden;
   }
   .materi-shot{
     background:var(--teal-soft);
@@ -144,28 +162,33 @@
     display:block;
   }
   .materi-body{
-    padding:18px 20px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:baseline;
-    gap:12px;
+    padding:20px 22px 24px;
   }
-  .materi-body h3{
-    font-size:18px;
-    color:var(--navy-deep);
-    max-width:24ch;
-  }
-  .materi-body .skp-value{
+  .materi-card .num{
     font-family:'Source Serif 4', serif;
-    font-size:18px;
+    font-size:14px;
     color:var(--coral);
-    white-space:nowrap;
+    margin-bottom:10px;
+    display:block;
   }
-  .materi-caption{
-    font-size:12px;
+  .materi-card h3{
+    font-size:19px;
+    color:var(--navy-deep);
+    margin-bottom:8px;
+  }
+  .materi-card p{
+    font-size:14px;
     color:var(--ink-soft);
-    padding:10px 20px 0;
-    margin:0;
+    margin:0 0 16px;
+  }
+  .materi-card .date{
+    display:inline-block;
+    font-size:13px;
+    font-weight:600;
+    color:var(--teal);
+    background:var(--teal-soft);
+    padding:6px 12px;
+    border-radius:3px;
   }
 
   /* INFO GRID */
@@ -175,7 +198,7 @@
     gap:1px;
     background:var(--line);
     border:1px solid var(--line);
-    margin-top:8px;
+    margin-top:28px;
   }
   .info-grid div{
     background:var(--white);
@@ -192,14 +215,15 @@
     color:var(--navy-deep);
   }
 
-  /* FORM */
+  /* CTA SECTION */
   .form-section{
     background:var(--navy-deep);
     color:var(--white);
+    text-align:center;
   }
   .form-section .section-label{color:#9FC7C0;}
-  .form-section h2{color:var(--white); font-size:28px; max-width:22ch;}
-  .form-section .lead{color:#C9D6D3; margin-top:10px; max-width:50ch; font-size:15px;}
+  .form-section h2{color:var(--white); font-size:28px; max-width:24ch; margin:0 auto;}
+  .form-section .lead{color:#C9D6D3; margin-top:10px; max-width:50ch; font-size:15px; margin-left:auto; margin-right:auto;}
   .form-card{
     background:var(--white);
     color:var(--ink);
@@ -207,42 +231,10 @@
     padding:32px;
     margin-top:32px;
   }
-  .field{margin-bottom:20px;}
-  .field label{
-    display:block;
-    font-size:14px;
-    font-weight:600;
-    margin-bottom:8px;
-    color:var(--navy-deep);
-  }
-  .field input[type="text"], .field input[type="tel"]{
-    width:100%;
-    padding:12px 14px;
-    border:1px solid var(--line);
-    border-radius:3px;
-    font-family:'IBM Plex Sans', sans-serif;
-    font-size:15px;
-    background:var(--teal-soft);
-  }
-  .field input:focus{outline:2px solid var(--teal); outline-offset:1px;}
-  .radio-row{display:flex; gap:20px; flex-wrap:wrap;}
-  .radio-row label{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-weight:500;
-    font-size:15px;
-    color:var(--ink);
-  }
-  .radio-row input{accent-color:var(--teal);}
   .form-note{
     font-size:13px;
     color:var(--ink-soft);
     margin-top:18px;
-  }
-  button.submit-btn{
-    width:100%;
-    margin-top:8px;
   }
 
   footer{
@@ -264,35 +256,18 @@
     html{scroll-behavior:auto;}
   }
 </style>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1426964712733128');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 <body>
 
 <div class="hero">
   <div class="wrap">
-    <p class="eyebrow">Program pelatihan pendidikan profesi terakreditasi, resmi terdaftar di akun Kemenkes</p>
-    <h1>2 Webinar setara 9 SKP untuk Perawat</h1>
-    <p class="lead">Ikuti dua sesi pembelajaran daring, dapatkan satuan kredit profesi yang diakui — untuk perawat, bidan, dan dokter.</p>
+    <p class="eyebrow">2 Hari, 2 Webinar — Webinar Kesehatan Nasional secara online</p>
+    <h1>Dapatkan 9 SKP untuk Perawat dan Bidan</h1>
+    <p class="lead">Plus 3 SKP untuk dokter. Khusus untuk tenaga kesehatan dan tenaga medis, ikuti dua sesi pembelajaran daring yang diakui secara resmi.</p>
 
     <div class="profession-plaque">
       <div><span class="skp">9 SKP</span><span class="who">Perawat</span></div>
-      <div><span class="skp">6 SKP</span><span class="who">Bidan</span></div>
+      <div><span class="skp">9 SKP</span><span class="who">Bidan</span></div>
       <div><span class="skp">3 SKP</span><span class="who">Dokter</span></div>
     </div>
 
@@ -301,7 +276,7 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
 </div>
 
 <div class="accred-strip">
-  Resmi terakreditasi di akun resmi Kemenkes
+  SKP Kemenkes — 2 Program, 2 Webinar
 </div>
 
 <section id="materi">
@@ -310,26 +285,28 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
     <h2>Yang akan Anda ikuti</h2>
 
     <div class="materi-list">
-      <article class="materi-card">
+      <div class="materi-card">
         <div class="materi-shot">
-          <img src="IMG_20260924_064850_212.jpg" alt="Tampilan resmi kelas Update Disaster Management di platform pembelajaran Kemenkes">
+          <img src="ghm.jpg" alt="Poster Webinar Golden Hour Management: Strategi Menyelamatkan Pasien Kritis">
         </div>
-        <p class="materi-caption">Terdaftar resmi di platform Kemenkes</p>
         <div class="materi-body">
-          <h3>Update Disaster Management</h3>
-          <span class="skp-value">4,5 SKP</span>
+          <span class="num">Program 1</span>
+          <h3>Golden Hour Management</h3>
+          <p>Strategi Menyelamatkan Pasien Kritis</p>
+          <span class="date">24 Oktober 2026</span>
         </div>
-      </article>
-      <article class="materi-card">
+      </div>
+      <div class="materi-card">
         <div class="materi-shot">
-          <img src="IMG_20260924_064857_966.jpg" alt="Tampilan resmi kelas Update Aritmia Management di platform pembelajaran Kemenkes">
+          <img src="perawat.jpg" alt="Poster Webinar Perawatan Luka Modern: Pengkajian Komprehensif dan Penatalaksanaan Berbasis Bukti">
         </div>
-        <p class="materi-caption">Terdaftar resmi di platform Kemenkes</p>
         <div class="materi-body">
-          <h3>Update Aritmia Management</h3>
-          <span class="skp-value">4,5 SKP</span>
+          <span class="num">Program 2</span>
+          <h3>Perawatan Luka Modern</h3>
+          <p>Pengkajian Komprehensif & Penatalaksanaan Berbasis Bukti</p>
+          <span class="date">25 Oktober 2026</span>
         </div>
-      </article>
+      </div>
     </div>
 
     <div class="info-grid">
@@ -339,7 +316,7 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
       </div>
       <div>
         <div class="label">Sertifikasi</div>
-        <div class="value">Program dengan SKP</div>
+        <div class="value">SKP Kemenkes</div>
       </div>
       <div>
         <div class="label">Investasi</div>
@@ -355,20 +332,20 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
     <h2>Daftarkan diri Anda sekarang, sebelum seat terisi penuh</h2>
     <p class="lead">Klik tombol di bawah, chat langsung terbuka ke admin kami untuk proses pendaftaran.</p>
 
-    <div class="form-card" style="text-align:center;">
-      <a href="#" id="waCta" class="cta-primary submit-btn" style="text-decoration:none; display:inline-block;">Daftar via WhatsApp Sekarang</a>
+    <div class="form-card">
+      <a href="#" id="waCta" class="cta-primary" style="text-decoration:none;">Daftar via WhatsApp Sekarang</a>
       <p class="form-note">Anda akan diarahkan ke WhatsApp admin untuk melanjutkan pendaftaran.</p>
     </div>
   </div>
 </section>
 
 <footer>
-  Webinar SKP Tenaga Kesehatan — Perawat, Bidan, Dokter
+  Webinar Kesehatan Nasional — Perawat, Bidan, Dokter · 24–25 Oktober 2026
 </footer>
 
 <script>
-  var ADMIN_WHATSAPP_NUMBER = "6285175060446"; // 0851 7506 0446
-  var WA_MESSAGE = "Halo, saya ingin mendaftar Webinar SKP (Update Disaster Management & Update Aritmia Management).";
+  var ADMIN_WHATSAPP_NUMBER = "6285175060446"; // Putri, 0823-2292-5735 (sesuai poster resmi)
+  var WA_MESSAGE = "Halo, saya ingin mendaftar Webinar Kesehatan Nasional (Golden Hour Management & Perawatan Luka Modern, 24-25 Oktober 2026).";
   var WA_URL = "https://wa.me/" + ADMIN_WHATSAPP_NUMBER + "?text=" + encodeURIComponent(WA_MESSAGE);
 
   document.getElementById('heroCta').setAttribute('href', WA_URL);
