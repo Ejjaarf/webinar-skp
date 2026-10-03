@@ -344,28 +344,22 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
 </footer>
 
 <script>
-  // Rotasi nomor admin: tiap kali tombol diklik, nomor tujuan gantian
-  // (round-robin per klik), supaya lead-nya kebagi rata ke dua admin.
-  var ADMIN_WHATSAPP_NUMBERS = [
+  // Rotator nomor admin: dibagi merata lintas SEMUA pengunjung lewat
+  // counter terpusat di Apps Script (lihat apps-script-wa-rotator.gs).
+  // Ganti ROTATOR_URL dengan URL Web App setelah lo deploy.
+  var ROTATOR_URL = "AKfycby0dpK30rZYL55ogJEfIKxgwXg7qdCLrg37nREeFfkk9lZaJZmMg33295vh8IZe6peDyw";
+
+  // Dipakai hanya sebagai fallback kalau rotator gagal diakses
+  // (mis. offline/error), supaya pendaftar tetap terarah ke salah satu admin.
+  var FALLBACK_NUMBERS = [
     "6285175060446", // 0851 7506 0446
     "6287864910486"  // 0878 6491 0486
   ];
+
   var WA_MESSAGE = "Halo, saya ingin mendaftar Webinar Kesehatan Nasional (Golden Hour Management & Perawatan Luka Modern, 24-25 Oktober 2026).";
 
-  function nextAdminNumber(){
-    var idx = 0;
-    try {
-      idx = parseInt(localStorage.getItem('waRotatorIdx') || '0', 10) % ADMIN_WHATSAPP_NUMBERS.length;
-      localStorage.setItem('waRotatorIdx', String((idx + 1) % ADMIN_WHATSAPP_NUMBERS.length));
-    } catch(err) {
-      // localStorage tidak tersedia: jatuhkan ke pilihan acak supaya tetap terbagi dua nomor
-      idx = Math.floor(Math.random() * ADMIN_WHATSAPP_NUMBERS.length);
-    }
-    return ADMIN_WHATSAPP_NUMBERS[idx];
-  }
-
-  function buildWaUrl(){
-    return "https://wa.me/" + nextAdminNumber() + "?text=" + encodeURIComponent(WA_MESSAGE);
+  function waUrl(number){
+    return "https://wa.me/" + number + "?text=" + encodeURIComponent(WA_MESSAGE);
   }
 
   function handleCtaClick(e){
@@ -373,7 +367,17 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
     if (typeof fbq === 'function') {
       fbq('track', 'Lead');
     }
-    window.location.href = buildWaUrl();
+
+    fetch(ROTATOR_URL)
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        window.location.href = waUrl(data.number);
+      })
+      .catch(function(){
+        // Rotator tidak terjangkau: pilih acak supaya tetap terbagi dua nomor
+        var fallback = FALLBACK_NUMBERS[Math.floor(Math.random() * FALLBACK_NUMBERS.length)];
+        window.location.href = waUrl(fallback);
+      });
   }
 
   document.getElementById('heroCta').addEventListener('click', handleCtaClick);
