@@ -344,21 +344,40 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
 </footer>
 
 <script>
-  var ADMIN_WHATSAPP_NUMBER = "6285175060446"; // Putri, 0823-2292-5735 (sesuai poster resmi)
+  // Rotasi nomor admin: tiap kali tombol diklik, nomor tujuan gantian
+  // (round-robin per klik), supaya lead-nya kebagi rata ke dua admin.
+  var ADMIN_WHATSAPP_NUMBERS = [
+    "6285175060446", // 0851 7506 0446
+    "6287864910486"  // 0878 6491 0486
+  ];
   var WA_MESSAGE = "Halo, saya ingin mendaftar Webinar Kesehatan Nasional (Golden Hour Management & Perawatan Luka Modern, 24-25 Oktober 2026).";
-  var WA_URL = "https://wa.me/" + ADMIN_WHATSAPP_NUMBER + "?text=" + encodeURIComponent(WA_MESSAGE);
 
-  document.getElementById('heroCta').setAttribute('href', WA_URL);
-  document.getElementById('waCta').setAttribute('href', WA_URL);
+  function nextAdminNumber(){
+    var idx = 0;
+    try {
+      idx = parseInt(localStorage.getItem('waRotatorIdx') || '0', 10) % ADMIN_WHATSAPP_NUMBERS.length;
+      localStorage.setItem('waRotatorIdx', String((idx + 1) % ADMIN_WHATSAPP_NUMBERS.length));
+    } catch(err) {
+      // localStorage tidak tersedia: jatuhkan ke pilihan acak supaya tetap terbagi dua nomor
+      idx = Math.floor(Math.random() * ADMIN_WHATSAPP_NUMBERS.length);
+    }
+    return ADMIN_WHATSAPP_NUMBERS[idx];
+  }
 
-  function trackLeadClick(){
+  function buildWaUrl(){
+    return "https://wa.me/" + nextAdminNumber() + "?text=" + encodeURIComponent(WA_MESSAGE);
+  }
+
+  function handleCtaClick(e){
+    e.preventDefault();
     if (typeof fbq === 'function') {
       fbq('track', 'Lead');
     }
+    window.location.href = buildWaUrl();
   }
 
-  document.getElementById('heroCta').addEventListener('click', trackLeadClick);
-  document.getElementById('waCta').addEventListener('click', trackLeadClick);
+  document.getElementById('heroCta').addEventListener('click', handleCtaClick);
+  document.getElementById('waCta').addEventListener('click', handleCtaClick);
 </script>
 
 </body>
