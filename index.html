@@ -271,7 +271,7 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
       <div><span class="skp">3 SKP</span><span class="who">Dokter</span></div>
     </div>
 
-    <a href="#" id="heroCta" class="cta-primary">Daftar via WhatsApp Sekarang</a>
+    <a href="https://chat.whatsapp.com/I186U7qrSixH8Kn8K3N17H" target="_blank" rel="noopener" id="heroCta" class="cta-primary">Gabung Waiting List Sekarang</a>
   </div>
 </div>
 
@@ -329,12 +329,12 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
 <section class="form-section" id="daftar">
   <div class="wrap">
     <p class="section-label">Pendaftaran</p>
-    <h2>Daftarkan diri Anda sekarang, sebelum seat terisi penuh</h2>
-    <p class="lead">Klik tombol di bawah, chat langsung terbuka ke admin kami untuk proses pendaftaran.</p>
+    <h2>Gabung waiting list sekarang, sebelum seat terisi penuh</h2>
+    <p class="lead">Klik tombol di bawah untuk masuk ke grup WhatsApp waiting list, dan dapatkan info pendaftaran paling awal.</p>
 
     <div class="form-card">
-      <a href="#" id="waCta" class="cta-primary" style="text-decoration:none;">Daftar via WhatsApp Sekarang</a>
-      <p class="form-note">Anda akan diarahkan ke WhatsApp admin untuk melanjutkan pendaftaran.</p>
+      <a href="https://chat.whatsapp.com/I186U7qrSixH8Kn8K3N17H" target="_blank" rel="noopener" id="waCta" class="cta-primary" style="text-decoration:none;">Gabung Waiting List Sekarang</a>
+      <p class="form-note">Anda akan diarahkan ke grup WhatsApp waiting list webinar ini.</p>
     </div>
   </div>
 </section>
@@ -344,40 +344,12 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
 </footer>
 
 <script>
-  // Rotator nomor admin: dibagi merata lintas SEMUA pengunjung lewat
-  // counter terpusat di Apps Script (lihat apps-script-wa-rotator.gs).
-  // Ganti ROTATOR_URL dengan URL Web App setelah lo deploy.
-  var ROTATOR_URL = "AKfycby0dpK30rZYL55ogJEfIKxgwXg7qdCLrg37nREeFfkk9lZaJZmMg33295vh8IZe6peDyw";
-
-  // Dipakai hanya sebagai fallback kalau rotator gagal diakses
-  // (mis. offline/error), supaya pendaftar tetap terarah ke salah satu admin.
-  var FALLBACK_NUMBERS = [
-    "6285175060446", // 0851 7506 0446
-    "6287864910486"  // 0878 6491 0486
-  ];
-
-  var WA_MESSAGE = "Halo, saya ingin mendaftar Webinar Kesehatan Nasional (Golden Hour Management & Perawatan Luka Modern, 24-25 Oktober 2026).";
-
-  function waUrl(number){
-    return "https://wa.me/" + number + "?text=" + encodeURIComponent(WA_MESSAGE);
-  }
-
-  function handleCtaClick(e){
-    e.preventDefault();
+  // Tombol mengarah langsung ke grup WhatsApp waiting list (href di HTML).
+  // Script ini cuma nembak event Lead ke Pixel sebelum link-nya kebuka.
+  function handleCtaClick(){
     if (typeof fbq === 'function') {
       fbq('track', 'Lead');
     }
-
-    fetch(ROTATOR_URL)
-      .then(function(res){ return res.json(); })
-      .then(function(data){
-        window.location.href = waUrl(data.number);
-      })
-      .catch(function(){
-        // Rotator tidak terjangkau: pilih acak supaya tetap terbagi dua nomor
-        var fallback = FALLBACK_NUMBERS[Math.floor(Math.random() * FALLBACK_NUMBERS.length)];
-        window.location.href = waUrl(fallback);
-      });
   }
 
   document.getElementById('heroCta').addEventListener('click', handleCtaClick);
