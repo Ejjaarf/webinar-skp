@@ -236,6 +236,43 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
     color:var(--ink-soft);
     margin-top:18px;
   }
+  .form-card form{text-align:left;}
+  .field{margin-bottom:20px;}
+  .field label{
+    display:block;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:8px;
+    color:var(--navy-deep);
+  }
+  .field input[type="text"], .field input[type="tel"], .field input[type="email"]{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:15px;
+    background:var(--teal-soft);
+  }
+  .field input:focus{outline:2px solid var(--teal); outline-offset:1px;}
+  .radio-row{display:flex; gap:20px; flex-wrap:wrap;}
+  .radio-row label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:500;
+    font-size:15px;
+    color:var(--ink);
+    margin-bottom:0;
+  }
+  .radio-row input{accent-color:var(--teal);}
+  .submit-btn{width:100%; margin-top:8px;}
+  .submit-btn:disabled{opacity:.7; cursor:wait;}
+  .success-box{text-align:center;}
+  .success-box h3{font-size:22px; margin-bottom:10px;}
+  .success-box p{margin:0; color:var(--ink-soft); font-size:15px;}
+  .success-box .cta-primary{margin-top:24px;}
+  [hidden]{display:none !important;}
 
   footer{
     padding:32px 0 48px;
@@ -271,7 +308,7 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
       <div><span class="skp">3 SKP</span><span class="who">Dokter</span></div>
     </div>
 
-    <a href="https://chat.whatsapp.com/Fq6FohJWgakDdzjpWFSVMf?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener" id="heroCta" class="cta-primary">Gabung Waiting List Sekarang</a>
+    <a href="#daftar" class="cta-primary">Isi Form & Gabung Waiting List</a>
   </div>
 </div>
 
@@ -329,12 +366,40 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
 <section class="form-section" id="daftar">
   <div class="wrap">
     <p class="section-label">Pendaftaran</p>
-    <h2>Gabung waiting list sekarang, sebelum seat terisi penuh</h2>
-    <p class="lead">Klik tombol di bawah untuk masuk ke grup WhatsApp waiting list, dan dapatkan info pendaftaran paling awal.</p>
+    <h2>Isi data diri, lalu gabung waiting list sebelum seat terisi penuh</h2>
+    <p class="lead">Lengkapi form di bawah. Setelah terkirim, tombol untuk masuk ke grup WhatsApp waiting list akan muncul.</p>
 
     <div class="form-card">
-      <a href="https://chat.whatsapp.com/Fq6FohJWgakDdzjpWFSVMf?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener" id="waCta" class="cta-primary" style="text-decoration:none;">Gabung Waiting List Sekarang</a>
-      <p class="form-note">Anda akan diarahkan ke grup WhatsApp waiting list webinar ini.</p>
+      <form id="regForm">
+        <div class="field">
+          <label for="nama">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="wa">No. WhatsApp</label>
+          <input type="tel" id="wa" name="wa" autocomplete="tel" inputmode="tel" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label>Profesi</label>
+          <div class="radio-row">
+            <label><input type="radio" name="profesi" value="Perawat" required> Perawat</label>
+            <label><input type="radio" name="profesi" value="Bidan"> Bidan</label>
+            <label><input type="radio" name="profesi" value="Dokter"> Dokter</label>
+          </div>
+        </div>
+        <button type="submit" class="cta-primary submit-btn" id="submitBtn">Kirim & Lanjut ke Grup WhatsApp</button>
+        <p class="form-note">Data Anda hanya dipakai untuk keperluan pendaftaran webinar ini.</p>
+      </form>
+
+      <div class="success-box" id="successBox" hidden>
+        <h3>Terima kasih, data Anda sudah kami terima</h3>
+        <p>Langkah terakhir: masuk ke grup WhatsApp waiting list untuk mendapat info pendaftaran paling awal.</p>
+        <a href="https://chat.whatsapp.com/Kv3r2F9HyoYGB9P2v0jish?s=cl&p=a&mlu=4&ilr=4" target="_blank" rel="noopener" id="groupBtn" class="cta-primary" style="text-decoration:none;">Masuk ke Grup WhatsApp</a>
+      </div>
     </div>
   </div>
 </section>
@@ -344,16 +409,50 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
 </footer>
 
 <script>
-  // Tombol mengarah langsung ke grup WhatsApp waiting list (href di HTML).
-  // Script ini cuma nembak event Lead ke Pixel sebelum link-nya kebuka.
-  function handleCtaClick(){
+  // Ganti dengan URL Web App Apps Script (lihat apps-script-catat-pendaftar.gs)
+  // supaya data form tercatat di Google Sheets. Selama masih placeholder,
+  // pencatatan dilewati tapi form & tombol grup tetap jalan.
+  var SHEET_WEBAPP_URL = "PASTE_URL_WEB_APP_APPS_SCRIPT_DI_SINI";
+
+  var form = document.getElementById('regForm');
+  var submitBtn = document.getElementById('submitBtn');
+  var successBox = document.getElementById('successBox');
+
+  function showSuccess(){
+    form.hidden = true;
+    successBox.hidden = false;
+    successBox.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var profesiEl = document.querySelector('input[name="profesi"]:checked');
+    var formData = new FormData();
+    formData.append('nama', document.getElementById('nama').value.trim());
+    formData.append('wa', document.getElementById('wa').value.trim());
+    formData.append('email', document.getElementById('email').value.trim());
+    formData.append('profesi', profesiEl ? profesiEl.value : '');
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Mengirim...';
+
+    // Event Lead ke Meta Pixel setelah form disubmit
     if (typeof fbq === 'function') {
       fbq('track', 'Lead');
     }
-  }
 
-  document.getElementById('heroCta').addEventListener('click', handleCtaClick);
-  document.getElementById('waCta').addEventListener('click', handleCtaClick);
+    if (SHEET_WEBAPP_URL.indexOf('http') !== 0) {
+      showSuccess();
+      return;
+    }
+
+    // no-cors: respons tidak bisa dibaca, jadi apa pun hasilnya
+    // pendaftar tetap diberi tombol grup lewat .finally()
+    fetch(SHEET_WEBAPP_URL, { method:'POST', mode:'no-cors', body:formData })
+      .catch(function(){})
+      .finally(showSuccess);
+  });
 </script>
 
 </body>
