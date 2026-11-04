@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Webinar Kesehatan Nasional — 9 SKP Perawat & Bidan, 3 SKP Dokter</title>
+<title>Webinar Kesehatan Nasional 28–29 November 2026 — SKP untuk Perawat, Bidan, Dokter</title>
+<meta name="description" content="2 webinar nasional, 6 pembicara, 100% online via Zoom & YouTube. SKP sesuai profesi: Perawat 4,5 + 4,5, Bidan 3 + 3, Dokter 1,5 + 1,5. Join grup waiting list sekarang.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -27,16 +28,19 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
 
 <style>
+  /* Palet diambil dari COVER1.jpg: navy, merah marun, emas, latar biru-abu */
   :root{
-    --navy:#0F2A3D;
-    --navy-deep:#081824;
-    --teal:#14A897;
-    --teal-soft:#E3F5F1;
-    --coral:#F16A5E;
-    --paper:#FBFAF7;
-    --ink:#16232B;
-    --ink-soft:#4B5B63;
-    --line:#D8E1DE;
+    --navy:#2A2D5E;
+    --navy-deep:#1B1D45;
+    --crimson:#A1242C;
+    --crimson-dark:#841B22;
+    --gold:#E3C165;
+    --gold-dark:#C9A445;
+    --sky:#EEF1F6;
+    --paper:#F7F8FB;
+    --ink:#1A1C33;
+    --ink-soft:#545873;
+    --line:#DADDE8;
     --white:#FFFFFF;
   }
   *{box-sizing:border-box;}
@@ -46,249 +50,338 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
     font-family:'IBM Plex Sans', sans-serif;
     color:var(--ink);
     background:var(--paper);
-    line-height:1.55;
+    line-height:1.6;
   }
   h1,h2,h3{
     font-family:'Source Serif 4', serif;
     margin:0;
     color:var(--navy-deep);
-    font-weight:600;
+    font-weight:700;
+    line-height:1.2;
   }
-  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  p{margin:0;}
+  img{max-width:100%;height:auto;display:block;}
   a{color:inherit;}
+  :focus-visible{outline:3px solid var(--gold-dark); outline-offset:3px;}
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 24px;}
+  .wrap-wide{max-width:960px;margin:0 auto;padding:0 24px;}
+  .block{padding:64px 0;}
+  .block-tint{background:var(--sky);}
+
+  /* BUTTONS */
+  .btn{
+    display:inline-block;
+    text-decoration:none;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-weight:700;
+    font-size:16px;
+    padding:16px 30px;
+    border-radius:4px;
+    border:none;
+    cursor:pointer;
+    text-align:center;
+  }
+  .btn-gold{background:var(--gold); color:var(--navy-deep);}
+  .btn-gold:hover{background:var(--gold-dark);}
+  .btn-red{background:var(--crimson); color:var(--white);}
+  .btn-red:hover{background:var(--crimson-dark);}
+  .btn:disabled{opacity:.7; cursor:wait;}
 
   /* HERO */
   .hero{
     background:linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);
     color:var(--white);
-    padding:64px 0 56px;
-  }
-  .hero .eyebrow{
-    font-size:14px;
-    letter-spacing:0.02em;
-    color:#8FE0D2;
-    margin-bottom:14px;
-    max-width:52ch;
+    padding:72px 0 64px;
+    border-bottom:6px solid var(--crimson);
   }
   .hero h1{
     color:var(--white);
-    font-size:clamp(32px,5vw,46px);
-    line-height:1.15;
-    max-width:18ch;
+    font-size:clamp(38px,7vw,60px);
+    max-width:14ch;
   }
-  .hero .lead{
-    margin-top:18px;
-    font-size:17px;
-    color:#C9D6D3;
-    max-width:48ch;
+  .hero .sub{
+    margin-top:20px;
+    font-family:'Source Serif 4', serif;
+    font-size:clamp(20px,3.2vw,26px);
+    font-weight:600;
+    color:var(--gold);
+    line-height:1.35;
   }
-  .profession-plaque{
+  .hero .when{
+    margin-top:14px;
+    font-size:16px;
+    color:#D5D8EA;
+  }
+  .skp-plaque{
     margin-top:36px;
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    border:1px solid rgba(255,255,255,0.18);
+    border:1px solid rgba(255,255,255,0.22);
     border-radius:4px;
     overflow:hidden;
   }
-  .profession-plaque div{
-    padding:20px 14px;
+  .skp-plaque > div{
+    padding:20px 8px;
     text-align:center;
-    border-right:1px solid rgba(255,255,255,0.18);
+    border-right:1px solid rgba(255,255,255,0.22);
   }
-  .profession-plaque div:last-child{border-right:none;}
-  .profession-plaque .skp{
+  .skp-plaque > div:last-child{border-right:none;}
+  .skp-plaque .who{display:block; font-size:14px; color:#D5D8EA; margin-bottom:6px;}
+  .skp-plaque .val{
+    display:block;
     font-family:'Source Serif 4', serif;
-    font-size:30px;
-    color:var(--coral);
-    display:block;
-  }
-  .profession-plaque .who{
-    font-size:13px;
-    color:#C9D6D3;
-    margin-top:4px;
-    display:block;
-  }
-  .cta-primary{
-    display:inline-block;
-    margin-top:32px;
-    background:var(--teal);
+    font-weight:700;
+    font-size:clamp(18px,4.6vw,30px);
     color:var(--white);
-    text-decoration:none;
-    font-weight:600;
-    padding:15px 30px;
-    border-radius:3px;
-    font-size:16px;
-    border:none;
-    cursor:pointer;
+    line-height:1.1;
   }
-  .cta-primary:hover{background:#118F80;}
+  .skp-plaque .unit{display:block; font-size:13px; color:var(--gold); margin-top:4px; font-weight:600;}
+  .hero .btn{margin-top:36px;}
 
-  /* ACCREDITATION STRIP */
-  .accred-strip{
-    background:var(--teal-soft);
+  /* MASALAH */
+  .problem h2{font-size:clamp(28px,5vw,38px);}
+  .problem-list{list-style:none; margin:28px 0 0; padding:0; border-top:1px solid var(--line);}
+  .problem-list li{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 0;
     border-bottom:1px solid var(--line);
-    padding:14px 0;
-    font-size:14px;
-    color:var(--teal);
-    text-align:center;
+    font-size:18px;
+    color:var(--ink);
   }
+  .problem-list svg{flex:none; width:26px; height:26px;}
+  .problem .closing{margin-top:28px; font-size:18px; color:var(--ink-soft);}
+  .problem .closing strong{color:var(--crimson);}
 
-  /* MATERI */
-  section{padding:56px 0;}
-  .section-label{
-    font-size:13px;
-    color:var(--teal);
-    font-weight:600;
-    margin-bottom:8px;
-  }
-  .materi-list{
-    margin-top:28px;
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-  }
-  .materi-card{
-    border:1px solid var(--line);
-    border-radius:4px;
-    background:var(--white);
-    overflow:hidden;
-  }
-  .materi-shot{
-    background:var(--teal-soft);
-    border-bottom:1px solid var(--line);
-  }
-  .materi-shot img{
+  /* BANNER */
+  .banners{display:grid; gap:20px;}
+  .banners img{
     width:100%;
-    display:block;
+    border-radius:6px;
+    border:1px solid var(--line);
+    background:var(--white);
   }
-  .materi-body{
-    padding:20px 22px 24px;
+
+  /* WEBINAR CARDS */
+  .webinar-stack{display:grid; gap:28px;}
+  .webinar{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-top:6px solid var(--crimson);
+    border-radius:4px;
+    padding:30px 28px 32px;
   }
-  .materi-card .num{
-    font-family:'Source Serif 4', serif;
-    font-size:14px;
-    color:var(--coral);
-    margin-bottom:10px;
-    display:block;
-  }
-  .materi-card h3{
-    font-size:19px;
-    color:var(--navy-deep);
-    margin-bottom:8px;
-  }
-  .materi-card p{
-    font-size:14px;
-    color:var(--ink-soft);
-    margin:0 0 16px;
-  }
-  .materi-card .date{
+  .webinar h2{font-size:clamp(22px,3.6vw,28px);}
+  .webinar .tag{
     display:inline-block;
+    background:var(--navy);
+    color:var(--white);
     font-size:13px;
     font-weight:600;
-    color:var(--teal);
-    background:var(--teal-soft);
-    padding:6px 12px;
+    padding:4px 10px;
     border-radius:3px;
+    margin-bottom:12px;
   }
-
-  /* INFO GRID */
-  .info-grid{
+  .webinar .schedule{
+    margin-top:14px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 22px;
+    font-weight:600;
+    color:var(--navy);
+    font-size:16px;
+  }
+  .webinar .cols{
+    margin-top:24px;
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-    margin-top:28px;
+    grid-template-columns:1.2fr 1fr;
+    gap:28px;
   }
-  .info-grid div{
+  .webinar h3{font-size:17px; margin-bottom:12px; color:var(--crimson);}
+  .check-list, .speaker-list{list-style:none; margin:0; padding:0;}
+  .check-list li{
+    position:relative;
+    padding:0 0 12px 30px;
+    font-size:15px;
+    color:var(--ink);
+  }
+  .check-list li::before{
+    content:"";
+    position:absolute;
+    left:0; top:3px;
+    width:18px; height:18px;
+    border-radius:50%;
+    background:var(--crimson);
+  }
+  .check-list li::after{
+    content:"";
+    position:absolute;
+    left:6px; top:7px;
+    width:5px; height:9px;
+    border:solid var(--white);
+    border-width:0 2px 2px 0;
+    transform:rotate(45deg);
+  }
+  .speaker-list li{
+    padding:0 0 12px 14px;
+    border-left:3px solid var(--gold);
+    margin-bottom:12px;
+    font-size:15px;
+    line-height:1.45;
+  }
+  .price{
+    margin-top:24px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .price .label{font-size:15px; color:var(--ink-soft);}
+  .price .amount{font-family:'Source Serif 4', serif; font-size:26px; font-weight:700; color:var(--navy-deep);}
+
+  /* SKP TABLE */
+  .skp-section h2{font-size:clamp(26px,4.4vw,34px);}
+  .table-wrap{margin-top:24px; overflow-x:auto;}
+  table.skp-table{
+    width:100%;
+    border-collapse:collapse;
     background:var(--white);
-    padding:24px 18px;
+    border:1px solid var(--line);
   }
-  .info-grid .label{
-    font-size:13px;
-    color:var(--ink-soft);
-    margin-bottom:6px;
+  .skp-table th, .skp-table td{
+    padding:16px 18px;
+    text-align:left;
+    border-bottom:1px solid var(--line);
+    font-size:16px;
   }
-  .info-grid .value{
-    font-family:'Source Serif 4', serif;
-    font-size:19px;
-    color:var(--navy-deep);
+  .skp-table thead th{background:var(--navy); color:var(--white); font-weight:600;}
+  .skp-table tbody th{font-weight:600; color:var(--navy-deep);}
+  .skp-table td{font-family:'Source Serif 4', serif; font-weight:700; color:var(--crimson); font-size:18px;}
+  .skp-section .note{margin-top:16px; font-style:italic; color:var(--ink-soft); font-size:15px;}
+
+  /* PENYELENGGARA */
+  .organizer h2{font-size:clamp(24px,4vw,30px);}
+  .organizer p{margin-top:14px; font-size:17px;}
+  .organizer .site{display:inline-block; margin-top:10px; font-weight:600; color:var(--crimson);}
+  .organizer .validasi{
+    margin-top:22px;
+    padding:16px 18px;
+    background:var(--sky);
+    border-left:4px solid var(--gold-dark);
+    font-size:15px;
   }
 
-  /* CTA SECTION */
-  .form-section{
-    background:var(--navy-deep);
+  /* CARA DAFTAR */
+  .steps{list-style:none; margin:28px 0 0; padding:0; counter-reset:step;}
+  .steps li{
+    counter-increment:step;
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    padding:18px 0;
+    border-bottom:1px solid var(--line);
+    font-size:18px;
+  }
+  .steps li::before{
+    content:counter(step);
+    flex:none;
+    width:38px; height:38px;
+    border-radius:50%;
+    background:var(--navy);
+    color:var(--gold);
+    font-family:'Source Serif 4', serif;
+    font-weight:700;
+    font-size:18px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .steps li:first-child{border-top:1px solid var(--line);}
+  .steps strong{color:var(--navy-deep);}
+  .block h2.plain{font-size:clamp(26px,4.4vw,34px);}
+
+  /* FAQ */
+  .faq{margin-top:24px; border-top:1px solid var(--line);}
+  .faq details{border-bottom:1px solid var(--line);}
+  .faq summary{
+    cursor:pointer;
+    list-style:none;
+    padding:18px 0;
+    font-weight:600;
+    font-size:17px;
+    color:var(--navy-deep);
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+  }
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::after{content:"+"; font-size:22px; color:var(--crimson); line-height:1;}
+  .faq details[open] summary::after{content:"–";}
+  .faq details p{padding:0 0 18px; color:var(--ink-soft); font-size:16px;}
+
+  /* FINAL CTA + FORM */
+  .final{
+    background:linear-gradient(180deg, var(--navy) 0%, var(--navy-deep) 100%);
     color:var(--white);
     text-align:center;
+    border-top:6px solid var(--crimson);
   }
-  .form-section .section-label{color:#9FC7C0;}
-  .form-section h2{color:var(--white); font-size:28px; max-width:24ch; margin:0 auto;}
-  .form-section .lead{color:#C9D6D3; margin-top:10px; max-width:50ch; font-size:15px; margin-left:auto; margin-right:auto;}
+  .final h2{color:var(--white); font-size:clamp(30px,5.4vw,44px); max-width:18ch; margin:0 auto;}
+  .final .tagline{margin-top:14px; font-family:'Source Serif 4', serif; font-size:clamp(18px,3vw,22px); color:var(--gold); font-weight:600;}
+  .final .lead{margin:12px auto 0; max-width:48ch; font-size:15px; color:#D5D8EA;}
   .form-card{
     background:var(--white);
     color:var(--ink);
     border-radius:4px;
     padding:32px;
     margin-top:32px;
+    text-align:left;
   }
-  .form-note{
-    font-size:13px;
-    color:var(--ink-soft);
-    margin-top:18px;
-  }
-  .form-card form{text-align:left;}
   .field{margin-bottom:20px;}
-  .field label{
-    display:block;
-    font-size:14px;
-    font-weight:600;
-    margin-bottom:8px;
-    color:var(--navy-deep);
-  }
+  .field label{display:block; font-size:14px; font-weight:600; margin-bottom:8px; color:var(--navy-deep);}
   .field input[type="text"], .field input[type="tel"], .field input[type="email"]{
     width:100%;
-    padding:12px 14px;
+    padding:13px 14px;
     border:1px solid var(--line);
     border-radius:3px;
     font-family:'IBM Plex Sans', sans-serif;
-    font-size:15px;
-    background:var(--teal-soft);
+    font-size:16px;
+    background:var(--sky);
+    color:var(--ink);
   }
-  .field input:focus{outline:2px solid var(--teal); outline-offset:1px;}
+  .field input:focus{outline:2px solid var(--navy); outline-offset:1px;}
   .radio-row{display:flex; gap:20px; flex-wrap:wrap;}
   .radio-row label{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    font-weight:500;
-    font-size:15px;
-    color:var(--ink);
-    margin-bottom:0;
+    display:flex; align-items:center; gap:8px;
+    font-weight:500; font-size:16px; color:var(--ink); margin-bottom:0;
   }
-  .radio-row input{accent-color:var(--teal);}
+  .radio-row input{accent-color:var(--crimson);}
   .submit-btn{width:100%; margin-top:8px;}
-  .submit-btn:disabled{opacity:.7; cursor:wait;}
+  .form-note{font-size:13px; color:var(--ink-soft); margin-top:16px; text-align:center;}
   .success-box{text-align:center;}
   .success-box h3{font-size:22px; margin-bottom:10px;}
-  .success-box p{margin:0; color:var(--ink-soft); font-size:15px;}
-  .success-box .cta-primary{margin-top:24px;}
+  .success-box p{color:var(--ink-soft); font-size:15px;}
+  .success-box .btn{margin-top:24px;}
   [hidden]{display:none !important;}
 
   footer{
-    padding:32px 0 48px;
+    padding:28px 0 44px;
     text-align:center;
     font-size:13px;
     color:var(--ink-soft);
+    background:var(--paper);
   }
 
-  @media(max-width:600px){
-    .profession-plaque{grid-template-columns:1fr;}
-    .profession-plaque div{border-right:none; border-bottom:1px solid rgba(255,255,255,0.18);}
-    .profession-plaque div:last-child{border-bottom:none;}
-    .info-grid{grid-template-columns:1fr;}
-    .materi-list{grid-template-columns:1fr;}
+  @media(max-width:640px){
+    .block{padding:52px 0;}
+    .webinar{padding:24px 20px 26px;}
+    .webinar .cols{grid-template-columns:1fr; gap:6px;}
+    .skp-plaque > div{padding:16px 4px;}
+    .form-card{padding:24px 20px;}
+    .skp-table th, .skp-table td{padding:14px 12px;}
   }
-
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
   }
@@ -296,78 +389,195 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
 </head>
 <body>
 
-<div class="hero">
+<header class="hero">
   <div class="wrap">
-    <p class="eyebrow">2 Hari, 2 Webinar — Webinar Kesehatan Nasional secara online</p>
-    <h1>Dapatkan 9 SKP untuk Perawat dan Bidan</h1>
-    <p class="lead">Plus 3 SKP untuk dokter. Khusus untuk tenaga kesehatan dan tenaga medis, ikuti dua sesi pembelajaran daring yang diakui secara resmi.</p>
+    <h1>Butuh SKP poin tinggi??</h1>
+    <p class="sub">2 Webinar Nasional. 6 Pembicara. 100% Online.</p>
+    <p class="when">28-29 November 2026 &nbsp;|&nbsp; Zoom &amp; YouTube</p>
 
-    <div class="profession-plaque">
-      <div><span class="skp">9 SKP</span><span class="who">Perawat</span></div>
-      <div><span class="skp">9 SKP</span><span class="who">Bidan</span></div>
-      <div><span class="skp">3 SKP</span><span class="who">Dokter</span></div>
+    <div class="skp-plaque">
+      <div><span class="who">Perawat</span><span class="val">4,5 + 4,5</span><span class="unit">SKP</span></div>
+      <div><span class="who">Bidan</span><span class="val">3 + 3</span><span class="unit">SKP</span></div>
+      <div><span class="who">Dokter</span><span class="val">1,5 + 1,5</span><span class="unit">SKP</span></div>
     </div>
 
-    <a href="#daftar" class="cta-primary">Isi Form & Gabung Waiting List</a>
+    <a href="#daftar" class="btn btn-gold">Join Grup Waiting List</a>
   </div>
-</div>
+</header>
 
-<div class="accred-strip">
-  SKP Kemenkes — 2 Program, 2 Webinar
-</div>
-
-<section id="materi">
+<section class="block problem">
   <div class="wrap">
-    <p class="section-label">Materi webinar</p>
-    <h2>Yang akan Anda ikuti</h2>
+    <h2>SKP belum cukup?</h2>
+    <ul class="problem-list">
+      <li>
+        <svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13" fill="#A1242C"/><path d="M8.5 8.5l9 9M17.5 8.5l-9 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+        Poin SKP masih kurang
+      </li>
+      <li>
+        <svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13" fill="#A1242C"/><path d="M8.5 8.5l9 9M17.5 8.5l-9 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+        Masa berlaku SIP makin dekat
+      </li>
+      <li>
+        <svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13" fill="#A1242C"/><path d="M8.5 8.5l9 9M17.5 8.5l-9 9" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg>
+        Bingung cari webinar yang sesuai profesi
+      </li>
+    </ul>
+    <p class="closing">Jangan tunggu mendesak. <strong>Persiapkan dari sekarang.</strong></p>
+  </div>
+</section>
 
-    <div class="materi-list">
-      <div class="materi-card">
-        <div class="materi-shot">
-          <img src="ghm.jpg" alt="Poster Webinar Golden Hour Management: Strategi Menyelamatkan Pasien Kritis">
-        </div>
-        <div class="materi-body">
-          <span class="num">Program 1</span>
-          <h3>Golden Hour Management</h3>
-          <p>Strategi Menyelamatkan Pasien Kritis</p>
-          <span class="date">24 Oktober 2026</span>
-        </div>
-      </div>
-      <div class="materi-card">
-        <div class="materi-shot">
-          <img src="perawat.jpg" alt="Poster Webinar Perawatan Luka Modern: Pengkajian Komprehensif dan Penatalaksanaan Berbasis Bukti">
-        </div>
-        <div class="materi-body">
-          <span class="num">Program 2</span>
-          <h3>Perawatan Luka Modern</h3>
-          <p>Pengkajian Komprehensif & Penatalaksanaan Berbasis Bukti</p>
-          <span class="date">25 Oktober 2026</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="info-grid">
-      <div>
-        <div class="label">Format</div>
-        <div class="value">Online</div>
-      </div>
-      <div>
-        <div class="label">Sertifikasi</div>
-        <div class="value">SKP Kemenkes</div>
-      </div>
-      <div>
-        <div class="label">Investasi</div>
-        <div class="value">Rp60.000</div>
-      </div>
+<section class="block block-tint">
+  <div class="wrap-wide">
+    <div class="banners">
+      <a href="COVER1.jpg" target="_blank" rel="noopener">
+        <img src="COVER1.jpg" width="1239" height="536" loading="lazy"
+             alt="Banner Webinar Kesehatan Nasional: Deteksi Dini dan Penanganan Kegawatdaruratan secara Cepat, Tepat dan Terintegrasi. Sabtu, 28 November 2026, pukul 08.00 WIB, online. HTM Rp30 ribu. Terdapat QR Code validasi SKP.">
+      </a>
+      <a href="COVER2.jpg" target="_blank" rel="noopener">
+        <img src="COVER2.jpg" width="1239" height="530" loading="lazy"
+             alt="Banner Webinar Kesehatan Nasional: Diabetic Woundcare Masterclass. Minggu, 29 November 2026, pukul 08.00 WIB, online. Terdapat QR Code validasi SKP.">
+      </a>
     </div>
   </div>
 </section>
 
-<section class="form-section" id="daftar">
+<section class="block">
   <div class="wrap">
-    <p class="section-label">Pendaftaran</p>
-    <h2>Isi data diri, lalu gabung waiting list sebelum seat terisi penuh</h2>
-    <p class="lead">Lengkapi form di bawah. Setelah terkirim, Anda otomatis diarahkan ke grup WhatsApp waiting list.</p>
+    <div class="webinar-stack">
+
+      <article class="webinar">
+        <span class="tag">Webinar 1</span>
+        <h2>Deteksi Dini &amp; Penanganan Kegawatdaruratan</h2>
+        <div class="schedule">
+          <span>Sabtu, 28 Nov 2026</span>
+          <span>08.00 WIB - Selesai</span>
+        </div>
+        <div class="cols">
+          <div>
+            <h3>Materi</h3>
+            <ul class="check-list">
+              <li>Emergency Management</li>
+              <li>Emergency Nursing: Triage, Initial Assessment &amp; Rapid Response</li>
+              <li>Obstetric Emergency: Maternal &amp; Neonatal</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Pembicara</h3>
+            <ul class="speaker-list">
+              <li>dr. Muhammad Isya Firmansyah, Sp.EM., FICEP</li>
+              <li>Ns. Moh Fuad Almubarok, M.Kep., Sp.KMB</li>
+              <li>Bdn. Nina Tresnayanti, SST., M.Kes., CHTT</li>
+            </ul>
+          </div>
+        </div>
+        <div class="price"><span class="label">Investasi</span><span class="amount">Rp 30.000</span></div>
+      </article>
+
+      <article class="webinar">
+        <span class="tag">Webinar 2</span>
+        <h2>Diabetic Woundcare Masterclass</h2>
+        <div class="schedule">
+          <span>Minggu, 29 Nov 2026</span>
+          <span>08.00 WIB - Selesai</span>
+        </div>
+        <div class="cols">
+          <div>
+            <h3>Materi</h3>
+            <ul class="check-list">
+              <li>Mencegah Amputasi: Strategi Penanganan Luka Diabetes</li>
+              <li>Assessment, Debridement &amp; Dressing Selection</li>
+              <li>Peran Bidan dalam Pencegahan Luka Diabetes pada Ibu Hamil</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Narasumber</h3>
+            <ul class="speaker-list">
+              <li>dr. Reza Dian Pratama, M.Biomed., Sp.B</li>
+              <li>Ahmad Nuriyadi, S.Kep., CWCCA</li>
+              <li>Annisa Septy Nurcahyani, S.ST., M.Tr.Keb</li>
+            </ul>
+          </div>
+        </div>
+        <!-- TODO: harga Webinar 2 belum dikonfirmasi di dokumen copy ("Rp [HARGA WEBINAR 2]").
+             Setelah pasti, tambahkan:
+             <div class="price"><span class="label">Investasi</span><span class="amount">Rp ...</span></div> -->
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="block block-tint skp-section">
+  <div class="wrap">
+    <h2>SKP sesuai profesi</h2>
+    <div class="table-wrap">
+      <table class="skp-table">
+        <thead>
+          <tr><th scope="col">Profesi</th><th scope="col">28 Nov</th><th scope="col">29 Nov</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Perawat</th><td>4,5 SKP</td><td>4,5 SKP</td></tr>
+          <tr><th scope="row">Bidan</th><td>3 SKP</td><td>3 SKP</td></tr>
+          <tr><th scope="row">Dokter</th><td>1,5 SKP</td><td>1,5 SKP</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Tiap webinar adalah kegiatan terpisah. Boleh ikut salah satu atau dua-duanya.</p>
+  </div>
+</section>
+
+<section class="block organizer">
+  <div class="wrap">
+    <h2>Penyelenggara</h2>
+    <p>Diselenggarakan oleh <strong>PT. Pelatihan Ilmu Keperawatan Indonesia (PT. PIKI)</strong></p>
+    <a class="site" href="https://ptpiki.com" target="_blank" rel="noopener">ptpiki.com</a>
+    <p class="validasi">Info akreditasi &amp; validasi SKP (QR Code) tersedia di banner.</p>
+  </div>
+</section>
+
+<section class="block block-tint">
+  <div class="wrap">
+    <h2 class="plain">Cara daftar</h2>
+    <ol class="steps">
+      <li><span><strong>Join grup waiting list</strong></span></li>
+      <li><span><strong>Dapat info pendaftaran</strong> di grup</span></li>
+      <li><span><strong>Ikuti webinar</strong>, link Zoom dikirim sebelum acara</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <h2 class="plain">FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>Online?</summary>
+        <p>Ya, via Zoom &amp; YouTube.</p>
+      </details>
+      <details>
+        <summary>Boleh ikut dua-duanya?</summary>
+        <p>Boleh, kegiatannya terpisah.</p>
+      </details>
+      <details>
+        <summary>SKP berapa?</summary>
+        <p>Perawat 4,5, Bidan 3, Dokter 1,5 per webinar.</p>
+      </details>
+      <details>
+        <summary>Validasi?</summary>
+        <p>Lewat QR Code di banner.</p>
+      </details>
+      <!-- TODO: FAQ "Sertifikat?" belum dijawab di dokumen copy ("[ISI SETELAH KONFIRMASI]").
+           Tambahkan setelah pasti:
+           <details><summary>Sertifikat?</summary><p>...</p></details> -->
+    </div>
+  </div>
+</section>
+
+<section class="block final" id="daftar">
+  <div class="wrap">
+    <h2>Jangan tunda persiapan SKP-mu!</h2>
+    <p class="tagline">Dua Webinar. Enam Pembicara. SKP Sesuai Profesi.</p>
+    <p class="lead">Isi data diri di bawah. Setelah terkirim, Anda otomatis diarahkan ke grup WhatsApp waiting list.</p>
 
     <div class="form-card">
       <form id="regForm">
@@ -391,21 +601,21 @@ src="https://www.facebook.com/tr?id=1426964712733128&ev=PageView&noscript=1"
             <label><input type="radio" name="profesi" value="Dokter"> Dokter</label>
           </div>
         </div>
-        <button type="submit" class="cta-primary submit-btn" id="submitBtn">Kirim & Lanjut ke Grup WhatsApp</button>
+        <button type="submit" class="btn btn-red submit-btn" id="submitBtn">Join Grup Waiting List Sekarang</button>
         <p class="form-note">Data Anda hanya dipakai untuk keperluan pendaftaran webinar ini.</p>
       </form>
 
       <div class="success-box" id="successBox" hidden>
         <h3>Terima kasih, data Anda sudah kami terima</h3>
         <p>Anda sedang diarahkan ke grup WhatsApp waiting list. Jika WhatsApp belum terbuka, klik tombol di bawah.</p>
-        <a href="https://chat.whatsapp.com/Fq6FohJWgakDdzjpWFSVMf?s=cl&p=a&iam=2" id="groupBtn" class="cta-primary" style="text-decoration:none;">Masuk ke Grup WhatsApp</a>
+        <a href="https://chat.whatsapp.com/Fq6FohJWgakDdzjpWFSVMf?s=cl&p=a&iam=2" id="groupBtn" class="btn btn-red">Masuk ke Grup WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  Webinar Kesehatan Nasional — Perawat, Bidan, Dokter · 24–25 Oktober 2026
+  Webinar Kesehatan Nasional · 28–29 November 2026 · Diselenggarakan oleh PT. Pelatihan Ilmu Keperawatan Indonesia (PT. PIKI)
 </footer>
 
 <script>
